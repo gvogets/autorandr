@@ -181,6 +181,8 @@ load() {
 		echo " -> loading profile $PROFILE"
 		$LOAD_METHOD "$CONF"
 
+    [ -x "/etc/autorandr/postswitch" ] && \
+      "/etc/autorandr/postswitch" "$PROFILE"
 		[ -x "$PROFILES/$PROFILE/postswitch" ] && \
 			"$PROFILES/$PROFILE/postswitch" "$PROFILE"
 		[ -x "$PROFILES/postswitch" ] && \
