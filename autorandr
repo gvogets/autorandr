@@ -256,10 +256,10 @@ if [ -n "$LOAD_PROFILE" ]; then
 fi
 
 for SETUP_FILE in $PROFILES/*/setup; do
-	if ! [ -e $SETUP_FILE ]; then
+	if ! [ -e "$SETUP_FILE" ]; then
 		break
 	fi
-	PROFILE="$(basename $(dirname "$SETUP_FILE"))"
+	PROFILE="$(basename "$(dirname "$SETUP_FILE")")"
 	echo -n "$PROFILE"
 
 	if blocked "$PROFILE"; then
